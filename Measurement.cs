@@ -45,8 +45,8 @@ namespace Open.Measuring
 								break;
 
 							default:
-								value /= FEETPERMILE;
-								type = UnitType.Inches;
+								value *= FEETPERMILE;
+								type = UnitType.Feet;
 								break;
 
 						}
@@ -66,13 +66,13 @@ namespace Open.Measuring
 							// Upscale...
 							case UnitType.Kilometers:
 							case UnitType.Miles:
-								value *= FEETPERMILE;
+								value /= FEETPERMILE;
 								type = UnitType.Miles;
 								break;
 
 							// Downscale...
 							default:
-								value /= INCHESPERFEET;
+								value *= INCHESPERFEET;
 								type = UnitType.Inches;
 								break;
 
@@ -106,8 +106,8 @@ namespace Open.Measuring
 						{
 							// Convert...
 							case UnitType.Feet:
-								value /= FEETPERMETER;
-								type = UnitType.Meters;
+								value *= FEETPERMETER;
+								type = UnitType.Feet;
 								break;
 
 							// Upscale...
@@ -141,13 +141,13 @@ namespace Open.Measuring
 							// Convert...
 							case UnitType.Centimeters:
 							case UnitType.Millimeters:
-								value *= INCHESPERCENTIMETER;
+								value /= INCHESPERCENTIMETER;
 								type = UnitType.Centimeters;
 								break;
 
 							// Upscale...
 							default:
-								value *= INCHESPERFEET;
+								value /= INCHESPERFEET;
 								type = UnitType.Feet;
 								break;
 						}
@@ -159,7 +159,7 @@ namespace Open.Measuring
 						{
 							// Convert...
 							case UnitType.Inches:
-								value /= INCHESPERCENTIMETER;
+								value *= INCHESPERCENTIMETER;
 								type = UnitType.Inches;
 								break;
 
@@ -171,7 +171,7 @@ namespace Open.Measuring
 
 							// Upscale...
 							default:
-								value *= 100;
+								value /= 100;
 								type = UnitType.Meters;
 								break;
 						}
