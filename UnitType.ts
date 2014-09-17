@@ -9,5 +9,7 @@ enum UnitType
 	Meters,
 	Kilometers
 }
+Object.freeze(UnitType);
+
 
 export = UnitType;
